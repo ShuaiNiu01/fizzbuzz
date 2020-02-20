@@ -12,41 +12,25 @@ from apicem import * # APIC-EM IP is assigned in apicem_config.py
 
 # Print out device list for user to select
 device = []
-try:
+
     resp= get(api="network-device") # The response (result) from "GET /network-device" request
     status = resp.status_code
     response_json = resp.json() # Get the json-encoded content from response
     device = response_json["response"] # Network-device
-except:
-    print ("Something wrong, cannot get network device information")
-    sys.exit()
 
-if status != 200:
-    print (resp.text)
-    sys.exit()
 
-# Make sure there is at least one network device
-if device == [] :   # if response is not empty
-    print ("No network device was found !")
-    sys.exit()
 
-# Device found
 device_list = []
-# Extracting attributes
-# Add a counter to an iterable
+
 i=0
 for item in device:
     i+=1
     device_list.append([i,item["hostname"],item["managementIpAddress"],item["type"],item["instanceUuid"]])
-# Show all network devices under this APIC-EM's management
-# Pretty print tabular data, needs 'tabulate' module
+
 print (tabulate(device_list, headers=['number','hostname','ip','type'],tablefmt="rst"),'\n')
 
 print ("*** Please note that some devices may not be able to show configuration for various reasons. ***\n")
 
-# Ask user input
-# Find out network device id for network device with ip or hostname, index 4 is the device id
-# In the loop until 'id' is assigned or user select 'exit'
 
 id = ""
 device_id_idx = 4
