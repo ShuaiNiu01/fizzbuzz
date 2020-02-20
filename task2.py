@@ -34,8 +34,10 @@ def change_str2(line):
     return line
 
 def change_str3(line):
-    pass
-
+    for i in line:
+        if line[-2:] == 'er':
+            index1 = line.find('er')
+            line = line[:index1] + '0r' + line[index1+1:]
 
 count = 0
 page1 = 25
