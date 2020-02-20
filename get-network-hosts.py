@@ -65,7 +65,8 @@ print ("Hosts = ")
 print (json.dumps(response.json(), indent=4, separators=(',', ': ')))
 
 r_resp=response.json()
-tup1 = (,r_resp["response"][0]["hostIp"])
-dic1 = {}
+tup1 = (r_resp["response"][0]["id"],r_resp["response"][0]["hostIp"])
+dic1 = {tup1:r_resp["response"][0]["hostMac"]}
 
 print(r_resp["response"][0]["hostIp"])
+print(dic1)
