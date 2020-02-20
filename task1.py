@@ -62,15 +62,20 @@ def count_trails():
 
 def tuple_infor():
     lst = []
+    sub_tup = ()
     csvfile = open("Trails.csv","r")
     reader = csv.reader(csvfile)
     for item in reader:
         if reader.line_num == 1:
             continue
-        if item[24] == "Yes"
-            if item[25] == "Yes"
+        if item[24] == "Yes":
+            if item[25] == "Yes":
                 sub_tup = (item[2],item[9],item[12],item[15],item[24],item[25])
-        lst.append(sub_tup)
+                if sub_tup[0] == '':
+                    continue
+                else:
+                    lst.append(sub_tup)
     tup1 = tuple(lst)
     print(tup1)
     return tup1
+tuple_infor()
