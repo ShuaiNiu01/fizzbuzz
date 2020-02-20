@@ -1,13 +1,13 @@
 import csv
 
-def verift_data():
+def verify_data():
     GOOD = []
     POOR = []
     MARGINAL = []
     csvfile = open("Trails.csv","r")
-    reader = csv.reader(csvfile1)
+    reader = csv.reader(csvfile)
     for item in reader:
-        if reader1.line_num == 1:
+        if reader.line_num == 1:
             continue
         if item[9] == "GOOD":
             GOOD.append(item[1])
@@ -15,6 +15,16 @@ def verift_data():
             POOR.append(item[1])
         if item[9] == "MARGINAL":
             MARGINAL.append(item[1])
-    print(GOOD)
-    print(POOR)
-    print(MARGINAL)
+    print("GOOD: ",GOOD)
+    print("POOR:",POOR)
+    print("MARGINAL: ",MARGINAL)
+    csvfile.close()
+# verify_data()
+
+def after2000():
+    csvfile = open("Trails.csv","r")
+    reader = csv.reader(csvfile)
+    for item in reader:
+        if reader.line_num == 1:
+            continue
+        
