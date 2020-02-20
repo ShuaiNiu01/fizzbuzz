@@ -31,8 +31,11 @@ def change_str2(line):
         elif 'I' in line:
             index4 = line.find('I')
             line = line[:index4] + '1' + line[index4+1:]
-
     return line
+
+def change_str3(line):
+    pass
+
 
 count = 0
 page1 = 25
@@ -46,14 +49,11 @@ for i in range(int(pages) * page1):
     line = sourcefile.readline()
     if choose == '1':
         line = change_str1(line)
-    else:
-        print("Choose wrong")
-    if choose == '2':
+    elif choose == '2':
         line = change_str2(line)
-    else:
-        print("Choose wrong")
-    if choose == '3':
+    elif choose == '3':
         line = change_str3(line)
     else:
         print("Choose wrong")
+        choose = input("Please choose the number that you want to make change: ")
     destnatefile.write(line)
