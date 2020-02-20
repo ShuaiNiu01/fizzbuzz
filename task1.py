@@ -22,9 +22,18 @@ def verify_data():
 # verify_data()
 
 def after2000():
+    lst2000 = []
     csvfile = open("Trails.csv","r")
     reader = csv.reader(csvfile)
     for item in reader:
         if reader.line_num == 1:
             continue
-        
+        elif item[10] == '':
+            continue
+        intnum = int(item[10])
+        if intnum >= 2000:
+            lst2000.append(item[1])
+    print(lst2000)
+    return lst2000
+
+after2000()
