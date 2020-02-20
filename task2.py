@@ -1,21 +1,8 @@
 sourcefile = open("Book1.txt","r")
 destnatefile = open("copybook.txt","a")
 
-count = 0
-page1 = 25
-pages = input("Please input how many pages you want to read: ")
-print("Choose 1 - Replace o or O with 0(number) and a or A with 4")
-print("Choose 2 - Replace e or E with 3 and i or I with 1")
-print("Choose 3 - Words ending with (suffix) '-er' ends with '-xor' or '-zor' [ hacker -> h4x0r) ")
-choose = input("Please choose the number that you want to make change: ")
-
-for i in range(int(pages) * page1):
-    line = sourcefile.readline()
-    line =
-    destnatefile.write(line)
-
 def change_str1(line):
-    for i in line:
+    for i in range(len(line)):
         if 'o' in line:
             index1 = line.find('o')
             line = line[:index1] + '0' + line[index1+1:]
@@ -28,3 +15,18 @@ def change_str1(line):
         elif 'A' in line:
             index4 = line.find('a')
             line = line[:index4] + '4' + line[index4+1:]
+    return line
+
+count = 0
+page1 = 25
+pages = input("Please input how many pages you want to read: ")
+print("Choose 1 - Replace o or O with 0(number) and a or A with 4")
+print("Choose 2 - Replace e or E with 3 and i or I with 1")
+print("Choose 3 - Words ending with (suffix) '-er' ends with '-xor' or '-zor' [ hacker -> h4x0r) ")
+choose = input("Please choose the number that you want to make change: ")
+
+for i in range(int(pages) * page1):
+    line = sourcefile.readline()
+    if choose == '1':
+        line = change_str1(line)
+    destnatefile.write(line)
