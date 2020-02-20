@@ -19,18 +19,19 @@ def change_str1(line):
 
 def change_str2(line):
     for i in line:
-        if 'o' in line:
-            index1 = line.find('o')
-            line = line[:index1] + '0' + line[index1+1:]
-        elif 'O' in line:
-            index2 = line.find('O')
-            line = line[:index2] + '0' + line[index2+1:]
-        elif 'a' in line:
-            index3 = line.find('a')
-            line = line[:index3] + '4' + line[index3+1:]
-        elif 'A' in line:
-            index4 = line.find('a')
-            line = line[:index4] + '4' + line[index4+1:]
+        if 'e' in line:
+            index1 = line.find('e')
+            line = line[:index1] + '3' + line[index1+1:]
+        elif 'E' in line:
+            index2 = line.find('E')
+            line = line[:index2] + '3' + line[index2+1:]
+        elif 'i' in line:
+            index3 = line.find('i')
+            line = line[:index3] + '1' + line[index3+1:]
+        elif 'I' in line:
+            index4 = line.find('I')
+            line = line[:index4] + '1' + line[index4+1:]
+
     return line
 
 count = 0
